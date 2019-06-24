@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
 
     <title>Game of Thrones Top Trumps</title>
   </head>
@@ -19,33 +20,37 @@
                 
             <!-- Main -->
             <main class="border border-dark row bg-secondary">
+                <button type="button" class="btn btn-dark btn-lg btn-block">Game Start</button>
+
         
-                <div id="left-side" class="border border-dark col-sm-6 bg-secondary">
+                <div id="playerCard" class="border border-dark col-sm-6 bg-secondary">
                         <div>
-                            <h2 id="playerCardName" class="text-center bg-primary text-white bg-dark">Name</h2>
+                            <h2 id="playerCardName" class="text-center bg-primary text-white bg-dark">Daenerys Targaryen</h2>
                         </div>
                         <div>
-                            <img src="./images/1daenerysTargaryen.jpg" atl="cardImg" width="1000px" height="520px">
+                            <img id="playerCardImg" src="./images/1daenerysTargaryen.jpg" atl="cardImg" width="500px" height="320px">
                         </div>
-                        <ul>
+                        <ul id="playerCardCategories">
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Likeability</a></li>
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Screen Time</a></li>
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Number of Kills</a></li>
                         </ul>
                 </div>
-                <div id="left-side" class="border border-dark col-sm-6 bg-secondary">
+
+                <div id="computerCard" class="border border-dark col-sm-6 bg-secondary">
                         <div>
-                            <h2 class="text-center bg-primary text-white bg-dark">Name</h2>
+                            <h2 id="computerCardName" class="text-center bg-primary text-white bg-dark">Jon Snow</h2>
                         </div>
                         <div>
-                            <img src="./images/1daenerysTargaryen.jpg" atl="cardImg" width="1000px" height="520px">
+                            <img id="computerCardImg" src="./images/2jonSnow.jpg" atl="cardImg" width="500px" height="320px">
                         </div>
-                        <ul>
+                        <ul id="computerCardCategories">
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Likeability</a></li>
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Screen Time</a></li>
                             <li class="text-center bg-primary text-white bg-dark"><a href="#">Number of Kills</a></li>
                         </ul>
                 </div>
+
             </main>
         
             <!-- Footer -->

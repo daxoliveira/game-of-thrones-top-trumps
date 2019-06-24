@@ -50,27 +50,66 @@ const deal = () => {
   computerDeck = shuffledDeck.slice(5);
 };
 
-// Place - placement of each array’s first card
-
-let playerCard;
-let computerCard;
-
-const place = () => {
-  playerCard = playerDeck[0];
-  computerCard = computerDeck[0];
-}
+// "Game Start" - function for game start button
 
 const startGame = () => {
   shuffle();
   deal();
-  place();
 };
 
 startGame();
 
-// console.log('---------------------PLAYER-----------------------------');
-// console.log(playerCard);
-// console.log('---------------------COMPUTER--------------------------');
-// console.log(computerCard);
+// Step 4 - Set "Play Round Function"
 
-// Step 4
+// a) Set function in which the player picks category on-click
+
+const pickCategory = (category) => {
+  let roundCard;
+  switch (category) {
+    case playerDeck[0].likeability:
+      if (playerDeck[0].likeability > computerDeck[0].likeability) {
+        roundCard = computerDeck.shift();
+        playerDeck.push(roundCard);
+      } else {
+        roundCard = playerDeck.shift();
+        computerDeck.push(roundCard);
+      }
+      break;
+
+    case playerDeck[0].screenTime:
+      if (playerDeck[0].screenTime > computerDeck[0].screenTime) {
+        roundCard = computerDeck.shift();
+        playerDeck.push(roundCard);
+      } else {
+        roundCard = playerDeck.shift();
+        computerDeck.push(roundCard);
+      }
+      break;
+
+    case playerDeck[0].numberOfKills:
+      if (playerDeck[0].numberOfKills > computerDeck[0].numberOfKills) {
+        roundCard = computerDeck.shift();
+        playerDeck.push(roundCard);
+      } else {
+        roundCard = playerDeck.shift();
+        computerDeck.push(roundCard);
+      }
+      break;
+    default:
+      console.log('You need to click on one of the categories in order to go on with the game!');
+  }
+};
+
+// pickCategory(playerDeck[0].likeability);
+
+// Step 5 - Set "Check Winner" function
+
+const checkWinner = () => {
+  if (playerDeck.length === 0) {
+    console.log('The computer has won the game! GAME OVER!');
+  }
+  if (computerDeck.length === 0) {
+    console.log('You have won the game! GAME OVER!');
+  }
+  return console.log(`The game is still going, the current score is Player ${playerDeck.length} cards vs. Computer ${computerDeck.length} cards!`);
+};

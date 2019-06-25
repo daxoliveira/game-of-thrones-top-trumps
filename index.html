@@ -7,61 +7,178 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/main.css">
 
     <title>Game of Thrones Top Trumps</title>
   </head>
 
-    <body>
-            <!-- Header -->
+    <body style="height: 100%; width: 100%;">
+
+            <!-- Shared Header -->
         <header>
-            <h1>Game of Thrones Top Trumps</h1>
+            <nav>
+                <div class="nav nav-tabs text-muted" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link text-muted" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                    <a class="nav-item nav-link text-muted" id="nav-game-tab" data-toggle="tab" href="#nav-game" role="tab" aria-controls="nav-profile" aria-selected="false">Game</a>
+                    <a class="nav-item nav-link text-muted" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-contact" aria-selected="false">About</a>
+                </div>
+            </nav>
         </header>
+            
+            
+        <!-- Shared Main -->
+        <main class="tab-content" id="nav-tabContent">
                 
-            <!-- Main -->
-            <main class="border border-dark row bg-secondary">
-                <button type="button" class="btn btn-dark btn-lg btn-block">Game Start</button>
-
+            <!--Home and Instructions-->
+            <section class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="container d-flex justify-content-center align-items-center">
+                    <div class="row col-sm-6">
+                        <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
+                        <h1 class="col-sm-6">Top Trumps</h1>
+                    </div>
+                </div>
+                <div class="bd-example">
+                        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./images/step0dragonThrone.jpeg" class="d-block w-100" alt="..." style="height: 50rem; width: 26rem;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Welcome to Game of Thrones Top Trumps</h5>
+                                    <p>Follow these slides for a quick guide on how to play this game!</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/step1aryaStark.jpeg" class="d-block w-100" alt="..." style="height: 50rem; width: 26rem;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Step 1</h5>
+                                    <p>The first version of the game includes a deck of 10 cards. once you click the "Game Start" button the deck will be evenly distributed between two adversaries, the computer  and you, the player.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/step2jonSnow.jpeg" class="d-block w-100" alt="..." style="height: 50rem; width: 26rem;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Step 2</h5>
+                                    <p>The game will be ready to start when one card facing up (player) against another one facing down (the computer).</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/step3cerseySmurk.jpeg" class="d-block w-100" alt="..." style="height: 50rem; width: 26rem;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Step 3</h5>
+                                    <p>Each card will have three properties with numerical values. The player will choose a property from his/her card (by clicking on it) to be compared against the facedown card's same property. The player wins the round if he/she has the highest property value.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/step4dannyCrazy.jpeg" class="d-block w-100" alt="..." style="height: 50rem; width: 26rem;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Step 4</h5>
+                                    <p>Once one of the adversaries has won all the cards, he or she will be the game winner. Now, click on the "Game" tab and let's play!!!</p>
+                                </div>
+                            </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                      </div>
+            </section>
+            
+            <!--Game-->
+            <section class="tab-pane fade" id="nav-game" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="container">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center" style="height: 48rem;">
+                        <div class="col-sm-4 d-flex justify-content-center" >
+                            <div class="card" style="width: 26rem; height: 34rem;">
+                                <div class="card-body">
+                                    <h5 id="playerCardName" class="card-title">Daenerys Targaryen</h5>
+                                </div>
+                                <img id="playerCardImage" src="./images/1daenerysTargaryen.jpg" class="card-img-top" alt="image or GOT character">
+                                <ul class="list-group">
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Likeability
+                                        <span id="playerCardLikeability" class="badge badge-dark badge-pill">99</span>
+                                    </button>
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Screen Time
+                                        <span id="playerCardScreenTime" class="badge badge-dark badge-pill">99</span>
+                                    </button>
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Number of Murders
+                                        <span id="playerCardNumberOfKills" class="badge badge-dark badge-pill">99</span>
+                                    </button>
+                                </ul>
+                            </div>
+                        </div>
+                            
+                        <div class="col-sm-4 d-flex justify-content-center align-items-center">
+                            <button id="gameStartButton" type="button" class="btn btn-dark btn-lg btn-block">Game Start</button>
+                        </div>
         
-                <div id="playerCard" class="border border-dark col-sm-6 bg-secondary">
-                        <div>
-                            <h2 id="playerCardName" class="text-center bg-primary text-white bg-dark">Daenerys Targaryen</h2>
+                        <div class="col-sm-4 d-flex justify-content-center" >
+                            <div class="card" style="width: 26rem; height: 34rem;">
+                                <div class="card-body">
+                                    <h5 id="computerCardName" class="card-title">Jon Snow</h5>
+                                </div>
+                                <img id="computerCardImage" src="./images/2jonSnow.jpg" class="card-img-top" alt="image or GOT character">
+                                <ul class="list-group">
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Likeability
+                                        <span id="computerCardlikeability" class="badge badge-dark badge-pill">98</span>
+                                    </button>
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Screen Time
+                                        <span id="computerCardScreenTime" class="badge badge-dark badge-pill">98</span>
+                                    </button>
+                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                        Number of Murders
+                                        <span id="computerCardNumberOfKills" class="badge badge-dark badge-pill">98</span>
+                                    </button>
+                                </ul>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- Footer -->
+                    <footer id="footer" class="row d-flex justify-content-between align-items-center">
+                        <div class="border border-dark col-sm-4 bg-secondary">
+                            <h2 class="text-center bg-primary text-white bg-dark">Player Cards</h2>
+                            <h2 id="playerCardsNumber" class="text-center bg-primary text-white bg-dark">5</h2>
                         </div>
-                        <div>
-                            <img id="playerCardImg" src="./images/1daenerysTargaryen.jpg" atl="cardImg" width="500px" height="320px">
-                        </div>
-                        <ul id="playerCardCategories">
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Likeability</a></li>
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Screen Time</a></li>
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Number of Kills</a></li>
-                        </ul>
-                </div>
 
-                <div id="computerCard" class="border border-dark col-sm-6 bg-secondary">
-                        <div>
-                            <h2 id="computerCardName" class="text-center bg-primary text-white bg-dark">Jon Snow</h2>
+                        <div class="border border-dark col-sm-4 bg-secondary">
+                            <h2 class="text-center bg-primary text-white bg-dark">Computer Cards</h2>
+                            <h2 id="computerCardsNumber" class="text-center bg-primary text-white bg-dark">5</h2>
                         </div>
-                        <div>
-                            <img id="computerCardImg" src="./images/2jonSnow.jpg" atl="cardImg" width="500px" height="320px">
-                        </div>
-                        <ul id="computerCardCategories">
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Likeability</a></li>
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Screen Time</a></li>
-                            <li class="text-center bg-primary text-white bg-dark"><a href="#">Number of Kills</a></li>
-                        </ul>
+                    </footer>
                 </div>
+            </section>
 
-            </main>
-        
-            <!-- Footer -->
-            <footer id="footer" class="border border-dark bg-secondary">
-                <div id="bottom-footer" class="border border-dark row bg-secondary">
-                    <h2 id="cards1" class="border border-dark col-sm-6 text-center bg-primary text-white bg-dark">Player Cards 1</h2>
-                    <h2 id="cards2" class="border border-dark col-sm-6 text-center bg-primary text-white bg-dark">Computer Cards 1</h2>
+
+                
+
+            <section class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="container">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
+                    </div>
                 </div>
-            </footer>
-        </div>
+            </section>
 
+        </main>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

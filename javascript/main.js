@@ -37,7 +37,7 @@ const shuffle = () => {
     shuffledDeck.push(unshuffledDeck[random]);
     unshuffledDeck.splice(random, 1);
   }
-}
+};
 
 
 // b) Deal - Divide into 2 arrays and assign the first array to Player and the second to Computer
@@ -55,18 +55,67 @@ const deal = () => {
 const startGame = () => {
   shuffle();
   deal();
+  document.getElementById('playerCardName').innerHTML = playerDeck[0].name;
+  document.getElementById('playerCardImage').src = playerDeck[0].picture;
+  document.getElementById('playerCardLikeability').innerHTML = playerDeck[0].likeability;
+  document.getElementById('playerCardScreenTime').innerHTML = playerDeck[0].screenTime;
+  document.getElementById('playerCardNumberOfKills').innerHTML = playerDeck[0].numberOfKills;
+
+  document.getElementById('computerCardName').innerHTML = computerDeck[0].name;
+  document.getElementById('computerCardImage').src = computerDeck[0].picture;
+  document.getElementById('computerCardLikeability').innerHTML = computerDeck[0].likeability;
+  document.getElementById('computerCardScreenTime').innerHTML = computerDeck[0].screenTime;
+  document.getElementById('computerCardNumberOfKills').innerHTML = computerDeck[0].numberOfKills;
 };
 
-startGame();
+// DOM Manipulation
 
+const startButton = document.getElementById('gameStartButton');
+
+startButton.onclick = function() {
+  startGame();
+  document.getElementById('playerCardCover').className = 'd-none';
+  document.getElementById('playerCardDiv').className = 'card';
+  document.getElementById('playerCardsNumber').innerHTML = playerDeck.length;
+  document.getElementById('computerCardsNumber').innerHTML = computerDeck.length;
+};
+
+let playerCardLikeability = document.getElementById('playerCardLikeabilityButton');
+
+let playerCardScreenTime = document.getElementById('playerCardScreenTimeButton');
+
+let playerCardNumberOfKills = document.getElementById('playerCardNumberOfKillsButton');
+
+
+playerCardLikeability.onclick = function() {
+  pickCategory('Likeability');
+  document.getElementById('computerCardCover').className = 'd-none';
+  document.getElementById('computerCardDiv').className = 'card';
+  checkWinner ();
+};
+
+playerCardScreenTime.onclick = function() {
+  pickCategory('Screen Time');
+  document.getElementById('computerCardCover').className = 'd-none';
+  document.getElementById('computerCardDiv').className = 'card';
+  checkWinner ();
+};
+
+playerCardNumberOfKills.onclick = function() {
+  pickCategory('Number of Kills');
+  document.getElementById('computerCardCover').className = 'd-none';
+  document.getElementById('computerCardDiv').className = 'card';
+  checkWinner ();
+};
 // Step 4 - Set "Play Round Function"
 
 // a) Set function in which the player picks category on-click
 
 const pickCategory = (category) => {
+  console.log(category);
   let roundCard;
   switch (category) {
-    case playerDeck[0].likeability:
+    case 'Likeability':
       if (playerDeck[0].likeability > computerDeck[0].likeability) {
         roundCard = computerDeck.shift();
         playerDeck.push(roundCard);
@@ -76,7 +125,7 @@ const pickCategory = (category) => {
       }
       break;
 
-    case playerDeck[0].screenTime:
+    case 'Screen Time':
       if (playerDeck[0].screenTime > computerDeck[0].screenTime) {
         roundCard = computerDeck.shift();
         playerDeck.push(roundCard);
@@ -86,7 +135,7 @@ const pickCategory = (category) => {
       }
       break;
 
-    case playerDeck[0].numberOfKills:
+    case 'Number of Kills':
       if (playerDeck[0].numberOfKills > computerDeck[0].numberOfKills) {
         roundCard = computerDeck.shift();
         playerDeck.push(roundCard);
@@ -97,10 +146,13 @@ const pickCategory = (category) => {
       break;
     default:
       console.log('You need to click on one of the categories in order to go on with the game!');
+      break;
   }
+  let playerCardsNumber = document.getElementById('playerCardsNumber');
+  let computerCardsNumber = document.getElementById('computerCardsNumber');
+  playerCardsNumber.innerHTML = `${playerDeck.length}`;
+  computerCardsNumber.innerHTML = `${computerDeck.length}`;
 };
-
-// pickCategory(playerDeck[0].likeability);
 
 // Step 5 - Set "Check Winner" function
 

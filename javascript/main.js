@@ -50,7 +50,8 @@ const deal = () => {
   computerDeck = shuffledDeck.slice(5);
 };
 
-// "Game Start" - function for game start button
+// "Game Start" & "Next Round" - functions for game start button and next round button
+
 const nextRoundFunction = () => {
   document.getElementById('playerCardName').innerHTML = playerDeck[0].name;
   document.getElementById('playerCardImage').src = playerDeck[0].picture;
@@ -79,7 +80,6 @@ const startGame = () => {
   deal();
   nextRoundFunction();
 };
-
 
 // DOM Manipulation
 
@@ -160,40 +160,53 @@ nextRoundButton.onclick = () => {
 // a) Set function in which the player picks category on-click
 
 const pickCategory = (category) => {
-  console.log(category);
-  let roundCard;
+  let roundCardLost;
+  let roundCardWon;
   switch (category) {
     case 'Likeability':
       if (playerDeck[0].likeability > computerDeck[0].likeability) {
-        roundCard = computerDeck.shift();
-        playerDeck.push(roundCard);
+        roundCardLost = computerDeck.shift();
+        roundCardWon = playerDeck.shift();
+        playerDeck.push(roundCardLost);
+        playerDeck.push(roundCardWon);
       } else {
-        roundCard = playerDeck.shift();
-        computerDeck.push(roundCard);
+        roundCardLost = playerDeck.shift();
+        roundCardWon = computerDeck.shift();
+        computerDeck.push(roundCardLost);
+        computerDeck.push(roundCardWon);
       }
       break;
 
     case 'Screen Time':
       if (playerDeck[0].screenTime > computerDeck[0].screenTime) {
-        roundCard = computerDeck.shift();
-        playerDeck.push(roundCard);
+        roundCardLost = computerDeck.shift();
+        roundCardWon = playerDeck.shift();
+        playerDeck.push(roundCardLost);
+        playerDeck.push(roundCardWon);
       } else {
-        roundCard = playerDeck.shift();
-        computerDeck.push(roundCard);
+        roundCardLost = playerDeck.shift();
+        roundCardWon = computerDeck.shift();
+        computerDeck.push(roundCardLost);
+        computerDeck.push(roundCardWon);
       }
       break;
 
     case 'Number of Kills':
       if (playerDeck[0].numberOfKills > computerDeck[0].numberOfKills) {
-        roundCard = computerDeck.shift();
-        playerDeck.push(roundCard);
+        roundCardLost = computerDeck.shift();
+        roundCardWon = playerDeck.shift();
+        playerDeck.push(roundCardLost);
+        playerDeck.push(roundCardWon);
       } else {
-        roundCard = playerDeck.shift();
-        computerDeck.push(roundCard);
+        roundCardLost = playerDeck.shift();
+        roundCardWon = computerDeck.shift();
+        computerDeck.push(roundCardLost);
+        computerDeck.push(roundCardWon);
       }
       break;
+
     default:
-      console.log('You need to click on one of the categories in order to go on with the game!');
+      console.log('You need to click on the next round button in order to go on with the game!');
       break;
   }
   const playerCardsNumber = document.getElementById('playerCardsNumber');

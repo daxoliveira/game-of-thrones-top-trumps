@@ -51,10 +51,7 @@ const deal = () => {
 };
 
 // "Game Start" - function for game start button
-
-const startGame = () => {
-  shuffle();
-  deal();
+const nextRoundFunction = () => {
   document.getElementById('playerCardName').innerHTML = playerDeck[0].name;
   document.getElementById('playerCardImage').src = playerDeck[0].picture;
   document.getElementById('playerCardLikeability').innerHTML = playerDeck[0].likeability;
@@ -66,47 +63,74 @@ const startGame = () => {
   document.getElementById('computerCardLikeability').innerHTML = computerDeck[0].likeability;
   document.getElementById('computerCardScreenTime').innerHTML = computerDeck[0].screenTime;
   document.getElementById('computerCardNumberOfKills').innerHTML = computerDeck[0].numberOfKills;
+
+  document.getElementById('playerCardLikeabilityButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
+  document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
 };
+
+const startGame = () => {
+  shuffle();
+  deal();
+  nextRoundFunction();
+};
+
 
 // DOM Manipulation
 
-const startButton = document.getElementById('gameStartButton');
+const gameStartButton = document.getElementById('gameStartButton');
+const nextRoundButton = document.getElementById('nextRoundButton');
+const gameRestartButton = document.getElementById('gameRestartButton');
 
-startButton.onclick = function() {
+nextRoundButton.disabled = true;
+gameRestartButton.disabled = true;
+
+gameStartButton.onclick = () => {
   startGame();
   document.getElementById('playerCardCover').className = 'd-none';
   document.getElementById('playerCardDiv').className = 'card';
   document.getElementById('playerCardsNumber').innerHTML = playerDeck.length;
   document.getElementById('computerCardsNumber').innerHTML = computerDeck.length;
+  gameStartButton.disabled = true;
+  gameRestartButton.disabled = false;
 };
 
-let playerCardLikeability = document.getElementById('playerCardLikeabilityButton');
+const playerCardLikeability = document.getElementById('playerCardLikeabilityButton');
+const playerCardScreenTime = document.getElementById('playerCardScreenTimeButton');
+const playerCardNumberOfKills = document.getElementById('playerCardNumberOfKillsButton');
 
-let playerCardScreenTime = document.getElementById('playerCardScreenTimeButton');
-
-let playerCardNumberOfKills = document.getElementById('playerCardNumberOfKillsButton');
-
-
-playerCardLikeability.onclick = function() {
+playerCardLikeability.onclick = () => {
+  document.getElementById('computerCardCover').className = 'd-none';
+  document.getElementById('computerCardDiv').className = 'card';
+  if (playerDeck[0].likeability > computerDeck[0].likeability) {
+    document.getElementById('playerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+  } else {
+    document.getElementById('playerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+  }
+  nextRoundButton.disabled = false;
   pickCategory('Likeability');
-  document.getElementById('computerCardCover').className = 'd-none';
-  document.getElementById('computerCardDiv').className = 'card';
-  checkWinner ();
+  checkWinner();
 };
 
-playerCardScreenTime.onclick = function() {
-  pickCategory('Screen Time');
+nextRoundButton.onclick = () => {
+  document.getElementById('computerCardCover').className = 'card bg-dark d-flex justify-content-center align-items-center';
+  document.getElementById('computerCardDiv').className = 'd-none';
+  nextRoundFunction();
+}
+
+playerCardScreenTime.onclick = () => {
   document.getElementById('computerCardCover').className = 'd-none';
   document.getElementById('computerCardDiv').className = 'card';
-  checkWinner ();
+  checkWinner();
 };
 
-playerCardNumberOfKills.onclick = function() {
-  pickCategory('Number of Kills');
+playerCardNumberOfKills.onclick = () => {
   document.getElementById('computerCardCover').className = 'd-none';
   document.getElementById('computerCardDiv').className = 'card';
-  checkWinner ();
+  checkWinner();
 };
+
 // Step 4 - Set "Play Round Function"
 
 // a) Set function in which the player picks category on-click
@@ -148,8 +172,8 @@ const pickCategory = (category) => {
       console.log('You need to click on one of the categories in order to go on with the game!');
       break;
   }
-  let playerCardsNumber = document.getElementById('playerCardsNumber');
-  let computerCardsNumber = document.getElementById('computerCardsNumber');
+  const playerCardsNumber = document.getElementById('playerCardsNumber');
+  const computerCardsNumber = document.getElementById('computerCardsNumber');
   playerCardsNumber.innerHTML = `${playerDeck.length}`;
   computerCardsNumber.innerHTML = `${computerDeck.length}`;
 };

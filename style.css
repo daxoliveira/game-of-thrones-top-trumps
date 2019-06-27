@@ -1,0 +1,17 @@
+@font-face{
+  font-family: "got";
+  src: url("./font/game_of_thrones.ttf")
+}
+body{
+  font-family: "got";
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+
+#playerCardName{
+  font-size: 14px;
+}
+
+#computerCardName{
+  font-size: 14px;
+}

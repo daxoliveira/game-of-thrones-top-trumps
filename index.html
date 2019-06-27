@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="style.css">
     <title>Game of Thrones Top Trumps</title>
   </head>
 
@@ -30,10 +31,10 @@
                 
             <!--Home and Instructions-->
             <section class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="container d-flex justify-content-center align-items-center">
+                <div class="container d-flex justify-content-center align-items-center pt-4 pb-4">
                     <div class="row col-sm-6">
                         <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
-                        <h1 class="col-sm-6">Top Trumps</h1>
+                        <h2 class="col-sm-6">Top Trumps</h2>
                     </div>
                 </div>
                 <div class="bd-example d-flex justify-content-center">
@@ -94,115 +95,139 @@
                       </div>
             </section>
             
-            <!--Game-->
+            <!-- Game Tab Container -->
             <section class="tab-pane fade" id="nav-game" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div class="container">
-                        <div class="row d-flex justify-content-center align-items-center">
-                                <div class="row col-sm-6">
-                                    <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
-                                    <h1 class="col-sm-6">Top Trumps</h1>
-                                </div>
-                            </div>
-                    <div class="row d-flex justify-content-center align-items-center" style="height: 48rem;">
-                        <div class="col-sm-4 d-flex justify-content-center" >
 
-                            <!-- Card Cover -->
-                            <div id="playerCardCover" class="card bg-dark d-flex justify-content-center align-items-center" style="width: 350px; height: 574px;">
-                                <img src="./images/gotLogoBlack.png" class="img-fluid" atl="card cover">
-                            </div>
-
-                            <!-- Card Backside -->
-                            <div id="playerCardDiv" class="card d-none">
-
-                                <div class="card-body">
-                                    <h5 id="playerCardName" class="card-title">Daenerys Targaryen</h5>
-                                </div>
-
-                                <img id="playerCardImage" src="./images/1daenerysTargaryen.jpg" class="card-img-top" alt="image or GOT character">
-
-                                <ul class="list-group">
-
-                                    <button type="button" id="playerCardLikeabilityButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
-                                        Likeability
-                                        <span id="playerCardLikeability" class="badge badge-dark badge-pill">99</span>
-                                    </button>
-
-                                    <button type="button" id="playerCardScreenTimeButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
-                                        Screen Time
-                                        <span id="playerCardScreenTime" class="badge badge-dark badge-pill">99</span>
-                                    </button>
-
-                                    <button type="button" id="playerCardNumberOfKillsButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
-                                        Number of Murders
-                                        <span id="playerCardNumberOfKills" class="badge badge-dark badge-pill">99</span>
-                                    </button>
-                                    
-                                </ul>
-                            </div>
-                        </div>
+                
+                <!-- Header Container -->
+                <div class="container d-flex justify-content-center align-items-center pt-4">
+                    <div class="row col-sm-6">
+                        <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
+                        <h2 class="col-sm-6">Top Trumps</h2>
+                    </div>
+                </div>
+                
+                <!-- Body Section Container-->
+                <div class="container">                
+                
+                <!-- Player and Computer Cards Container -->
+                <div class="row d-flex justify-content-evenly align-items-center" style="height: 700px;">
                         
-                        <!-- Game Start Button -->
-                        <div class="col-sm-4 d-flex justify-content-center align-items-center">
-                            <button id="gameStartButton" type="button" class="btn btn-dark btn-lg btn-block">Game Start</button>
-                        </div>
-        
+                        <!-- Player Cards Container -->
+                        <div class="col-sm-4 d-flex justify-content-center" >
+                            
+                            <!-- Player Cards Cover -->
+                            <div id="playerCardCover" class="card bg-dark d-flex justify-content-center align-items-center" style="width: 350px; height: 574px;">
+                                    <img src="./images/gotLogoBlack.png" class="img-fluid" atl="card cover">
+                                </div>
+                                
+                                <!-- Player Cards Backside -->
+                                <div id="playerCardDiv" class="card d-none">
+                                    <div class="card-body">
+                                        <h5 id="playerCardName" class="card-title">Daenerys Targaryen</h5>
+                                    </div>
+                                    <img id="playerCardImage" src="./images/1daenerysTargaryen.jpg" class="card-img-top" alt="image or GOT character">
+                                    <ul class="list-group">
+                                        <button type="button" id="playerCardLikeabilityButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                            Likeability
+                                            <span id="playerCardLikeability" class="badge badge-dark badge-pill">99</span>
+                                        </button>
+                                        <button type="button" id="playerCardScreenTimeButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                            Screen Time
+                                            <span id="playerCardScreenTime" class="badge badge-dark badge-pill">99</span>
+                                        </button>
+                                        <button type="button" id="playerCardNumberOfKillsButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                            Number of Murders
+                                            <span id="playerCardNumberOfKills" class="badge badge-dark badge-pill">99</span>
+                                        </button>
+                                    </ul>
+                                </div> <!-- Player Cards Backside -->
+                                
+                            </div> <!--Player Cards Container -->
+                            
+                            
+                            <!-- Game Buttons Container -->
+                            <div class="col-sm-4">
+                                <div class="row d-flex align-items-center justify-content-around" style="height: 574px;">
+                                    <!-- Game Start Button Container -->
+                                    <div class="col-sm-12">
+                                        <button id="gameStartButton" type="button" class="btn btn-dark btn-lg btn-block">Game Start</button>
+                                    </div>
+                
+                                    <!-- Next Round Button Container -->
+                                    <div class="col-sm-12 ">
+                                        <button id="nextRoundButton" type="button" class="btn btn-dark btn-lg btn-block">Next Round</button>
+                                    </div>
+                
+                                    <!-- Game Restart Button Container -->
+                                    <div class="col-sm-12 ">
+                                        <button id="gameRestartButton" type="button" class="btn btn-dark btn-lg btn-block">Game Restart</button>
+                                    </div>
+                                </div>
+                            </div> <!-- Game Buttons Container-->
+
+                            <!-- Computer Cards Container -->
                         <div class="col-sm-4 d-flex justify-content-center">
 
-                            <!-- Card Cover -->
+                            <!-- Computer Cards Cover -->
                             <div id="computerCardCover" class="card bg-dark d-flex justify-content-center align-items-center" style="width: 350px; height: 574px;">
                                 <img src="./images/gotLogoBlack.png" class="img-fluid" atl="card cover">
-                            </div>
+                            </div> <!-- Computer Card Cover -->
     
-                            <!-- Card Backside -->
+                            <!-- Computer Cards Backside -->
                             <div id="computerCardDiv" class="card d-none">
                                 <div class="card-body">
                                     <h5 id="computerCardName" class="card-title">Jon Snow</h5>
                                 </div>
-
                                 <img id="computerCardImage" src="./images/2jonSnow.jpg" class="card-img-top" alt="image or GOT character">
-                                
                                 <ul class="list-group">
-                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                    <button type="button" id="computerCardLikeabilityButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
                                         Likeability
                                         <span id="computerCardLikeability" class="badge badge-dark badge-pill">98</span>
                                     </button>
-                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                    <button type="button" id="computerCardScreenTimeButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
                                         Screen Time
                                         <span id="computerCardScreenTime" class="badge badge-dark badge-pill">98</span>
                                     </button>
-                                    <button type="button" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
+                                    <button type="button" id="computerCardNumberOfKillsButton" class="btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center">
                                         Number of Murders
                                         <span id="computerCardNumberOfKills" class="badge badge-dark badge-pill">98</span>
                                     </button>
                                 </ul>
-                            </div>
-                        </div>    
-                    </div>
-                    <!-- Footer -->
-                    <footer id="footer" class="row d-flex justify-content-between align-items-center">
-                        <div class="border border-dark col-sm-4 bg-secondary">
-                            <h2 class="text-center bg-primary text-white bg-dark">Player Cards</h2>
+                            </div> <!-- Computer Cards Backside -->
+
+                        </div> <!-- Computer Cards Container -->
+
+                    </div> <!-- Player and Computer Cards Container -->
+
+
+                </div> <!-- Body Section Container-->
+
+                <!-- Footer -->
+                <footer class="container-fluid">
+                    <div id="footer" class="row d-flex justify-content-around align-items-center">
+                        <div class="border border-dark col-sm-6 bg-secondary pt-2">
+                            <h3 class="text-center bg-primary text-white bg-dark p-3">Player Cards</h3>
                             <h2 id="playerCardsNumber" class="text-center bg-primary text-white bg-dark">0</h2>
                         </div>
-
-                        <div class="border border-dark col-sm-4 bg-secondary">
-                            <h2 class="text-center bg-primary text-white bg-dark">Computer Cards</h2>
+                        
+                        <div class="border border-dark col-sm-6 bg-secondary pt-2">
+                            <h3 class="text-center bg-primary text-white bg-dark p-3">Computer Cards</h3>
                             <h2 id="computerCardsNumber" class="text-center bg-primary text-white bg-dark">0</h2>
                         </div>
-                    </footer>
-                </div>
-            </section>
+                    </div>
+                </footer> <!-- Footer -->
 
 
-                
+            </section> <!-- Section Container -->
 
             <section class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <div class="row">
-                        <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid col-sm-6" alt="Responsive image" style="width: 16rem; height: 3rem;">
-                        <h1 class="col-sm-6">Top Trumps</h1>
+                    <div class="container d-flex justify-content-center align-items-center pt-4 pb-4">
+                        <div class="row col-sm-6">
+                            <img src="./images/gameOfThronesLogo.jpeg" class="img-fluid" alt="Responsive image" style="width: 16rem; height: 3rem;">
+                            <h2 class="col-sm-6">Top Trumps</h2>
+                        </div>
                     </div>
-                </div>
                     <div class="row d-flex justify-content-center align-items-center">
                         <h1>"With Love and Anger"</h1>
                     </div>

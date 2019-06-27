@@ -23,13 +23,13 @@ const aryaStark = new Card('Arya Stark', './images/8aryaStark.jpg', 93, 93, 93);
 const brienneOfTarth = new Card('Brienne of Tarth', './images/9brienneOfTarth.jpg', 92, 92, 92);
 const ramsayBolton = new Card('Ramsay Bolton', './images/10ramsayBolton.jpg', 91, 91, 91);
 
-const unshuffledDeck = [];
+let unshuffledDeck = [];
 unshuffledDeck.push(daenerysTargaryen, jonSnow, tyrionLannister, sansaStark, cerseiLannister, joffreyBaratheon, eddardStark, aryaStark, brienneOfTarth, ramsayBolton);
 
 // Step 3 - "Game Start Button" - Set shuffle,deal, and display functions ------------------------
 // a) Shuffle - Shuffle the 10 cards
 
-const shuffledDeck = [];
+let shuffledDeck = [];
 
 const shuffle = () => {
   for (let i = 0; i < 10; i += 1) {
@@ -78,7 +78,7 @@ const nextRoundFunction = () => {
 const startGame = () => {
   shuffle();
   deal();
-  nextRoundFunction();
+  // nextRoundFunction();
 };
 
 // DOM Manipulation
@@ -92,6 +92,7 @@ gameRestartButton.disabled = true;
 
 gameStartButton.onclick = () => {
   startGame();
+  nextRoundFunction();
   document.getElementById('playerCardCover').className = 'd-none';
   document.getElementById('playerCardDiv').className = 'card';
   document.getElementById('playerCardsNumber').innerHTML = playerDeck.length;
@@ -99,6 +100,21 @@ gameStartButton.onclick = () => {
   gameStartButton.disabled = true;
   gameRestartButton.disabled = false;
 };
+
+gameRestartButton.onclick = () => {
+  unshuffledDeck = [];
+  shuffledDeck = [];
+  unshuffledDeck.push(daenerysTargaryen, jonSnow, tyrionLannister, sansaStark, cerseiLannister, joffreyBaratheon, eddardStark, aryaStark, brienneOfTarth, ramsayBolton);
+  startGame();
+  nextRoundFunction();
+  document.getElementById('playerCardCover').className = 'd-none';
+  document.getElementById('playerCardDiv').className = 'card';
+  document.getElementById('computerCardCover').className = 'card bg-dark d-flex justify-content-center align-items-center';
+  document.getElementById('computerCardDiv').className = 'd-none';
+  document.getElementById('playerCardsNumber').innerHTML = playerDeck.length;
+  document.getElementById('computerCardsNumber').innerHTML = computerDeck.length;
+};
+
 
 const playerCardLikeability = document.getElementById('playerCardLikeabilityButton');
 const playerCardScreenTime = document.getElementById('playerCardScreenTimeButton');
@@ -115,6 +131,9 @@ playerCardLikeability.onclick = () => {
     document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
   }
   nextRoundButton.disabled = false;
+  // playerCardLikeability.disabled = true;
+  playerCardScreenTime.disabled = true;
+  playerCardNumberOfKills.disabled = true;
   pickCategory('Likeability');
   checkWinner();
 };
@@ -131,6 +150,9 @@ playerCardScreenTime.onclick = () => {
     document.getElementById('computerCardScreenTimeButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
   }
   nextRoundButton.disabled = false;
+  playerCardLikeability.disabled = true;
+  playerCardScreenTime.disabled = true;
+  playerCardNumberOfKills.disabled = true;
   pickCategory('Screen Time');
   checkWinner();
 };
@@ -146,6 +168,9 @@ playerCardNumberOfKills.onclick = () => {
     document.getElementById('computerCardNumberOfKillsButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
   }
   nextRoundButton.disabled = false;
+  playerCardLikeability.disabled = true;
+  playerCardScreenTime.disabled = true;
+  playerCardNumberOfKills.disabled = true;
   pickCategory('Number of Kills');
   checkWinner();
 };
@@ -153,8 +178,12 @@ playerCardNumberOfKills.onclick = () => {
 nextRoundButton.onclick = () => {
   document.getElementById('computerCardCover').className = 'card bg-dark d-flex justify-content-center align-items-center';
   document.getElementById('computerCardDiv').className = 'd-none';
+  playerCardLikeability.disabled = false;
+  playerCardScreenTime.disabled = false;
+  playerCardNumberOfKills.disabled = false;
   nextRoundFunction();
 };
+
 // Step 4 - Set "Play Round Function"
 
 // a) Set function in which the player picks category on-click
@@ -241,4 +270,8 @@ const checkWinner = () => {
     gameRestartButton.disabled = false;
   }
   return console.log(`The game is still going, the current score is Player ${playerDeck.length} cards vs. Computer ${computerDeck.length} cards!`);
+};
+
+window.onload = () => {
+  document.getElementById('gotThemeSong').play();
 };

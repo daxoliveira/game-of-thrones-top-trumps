@@ -12,16 +12,16 @@ class Card {
 
 // Step 2 - Create 10 cards and store them in an array
 
-const daenerysTargaryen = new Card('Daenerys Targaryen', './images/1daenerysTargaryen.jpg', 100, 100, 100);
-const jonSnow = new Card('Jon Snow', './images/2jonSnow.jpg', 99, 99, 99);
-const tyrionLannister = new Card('Tyrion Lannister', './images/3tyrionLannister.jpg', 98, 98, 98);
-const sansaStark = new Card('Sansa Stark', './images/4sansaStark.jpg', 97, 97, 97);
-const cerseiLannister = new Card('Cersei Lannister', './images/5cerseiLannister.jpg', 96, 96, 96);
-const joffreyBaratheon = new Card('Joffrey Baratheon', './images/6joffreyBaratheon.jpg', 95, 95, 95);
-const eddardStark = new Card('Eddard Stark', './images/7eddardStark.jpg', 94, 94, 94);
-const aryaStark = new Card('Arya Stark', './images/8aryaStark.jpg', 93, 93, 93);
-const brienneOfTarth = new Card('Brienne of Tarth', './images/9brienneOfTarth.jpg', 92, 92, 92);
-const ramsayBolton = new Card('Ramsay Bolton', './images/10ramsayBolton.jpg', 91, 91, 91);
+const daenerysTargaryen = new Card('Daenerys Targaryen', './images/1daenerysTargaryen.jpg', 107, 276, 6582);
+const jonSnow = new Card('Jon Snow', './images/2jonSnow.jpg', 123, 338, 112);
+const tyrionLannister = new Card('Tyrion Lannister', './images/3tyrionLannister.jpg', 95, 337, 32);
+const sansaStark = new Card('Sansa Stark', './images/4sansaStark.jpg', 80, 239, 8);
+const cerseiLannister = new Card('Cersei Lannister', './images/5cerseiLannister.jpg', 62, 236, 199);
+const joffreyBaratheon = new Card('Joffrey Baratheon', './images/6joffreyBaratheon.jpg', 3, 70, 20);
+const eddardStark = new Card('Eddard Stark', './images/7eddardStark.jpg', 72, 100, 37);
+const aryaStark = new Card('Arya Stark', './images/8aryaStark.jpg', 96, 224, 1278);
+const brienneOfTarth = new Card('Brienne of Tarth', './images/9brienneOfTarth.jpg', 91, 98, 94);
+const ramsayBolton = new Card('Ramsay Bolton', './images/10ramsayBolton.jpg', 5, 66, 102);
 
 let unshuffledDeck = [];
 unshuffledDeck.push(daenerysTargaryen, jonSnow, tyrionLannister, sansaStark, cerseiLannister, joffreyBaratheon, eddardStark, aryaStark, brienneOfTarth, ramsayBolton);
@@ -113,12 +113,30 @@ gameRestartButton.onclick = () => {
   document.getElementById('computerCardDiv').className = 'd-none';
   document.getElementById('playerCardsNumber').innerHTML = playerDeck.length;
   document.getElementById('computerCardsNumber').innerHTML = computerDeck.length;
+
+  document.getElementById('playerCardsNumberText').classList = 'text-center bg-dark text-white p-3';
+  document.getElementById('playerCardsNumberText').innerHTML = 'Player Cards';
+  document.getElementById('computerCardsNumberText').classList = 'text-center bg-dark text-white p-3';
+  document.getElementById('computerCardsNumberText').innerHTML = 'Computer Cards';
+  document.getElementById('playerCardsNumber').classList = 'text-center bg-dark text-white';
+  document.getElementById('computerCardsNumber').classList = 'text-center bg-dark text-white';
+
+  playerCardLikeability.disabled = false;
+  playerCardScreenTime.disabled = false;
+  playerCardNumberOfKills.disabled = false;
+  computerCardLikeability.disabled = false;
+  computerCardScreenTime.disabled = false;
+  computerCardNumberOfKills.disabled = false;  
 };
 
 
 const playerCardLikeability = document.getElementById('playerCardLikeabilityButton');
 const playerCardScreenTime = document.getElementById('playerCardScreenTimeButton');
 const playerCardNumberOfKills = document.getElementById('playerCardNumberOfKillsButton');
+
+const computerCardLikeability = document.getElementById('computerCardLikeabilityButton');
+const computerCardScreenTime = document.getElementById('computerCardScreenTimeButton');
+const computerCardNumberOfKills = document.getElementById('computerCardNumberOfKillsButton');
 
 playerCardLikeability.onclick = () => {
   document.getElementById('computerCardCover').className = 'd-none';
@@ -131,9 +149,12 @@ playerCardLikeability.onclick = () => {
     document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
   }
   nextRoundButton.disabled = false;
-  // playerCardLikeability.disabled = true;
+  playerCardLikeability.disabled = true;
   playerCardScreenTime.disabled = true;
   playerCardNumberOfKills.disabled = true;
+  computerCardLikeability.disabled = true;
+  computerCardScreenTime.disabled = true;
+  computerCardNumberOfKills.disabled = true;
   pickCategory('Likeability');
   checkWinner();
 };
@@ -153,6 +174,9 @@ playerCardScreenTime.onclick = () => {
   playerCardLikeability.disabled = true;
   playerCardScreenTime.disabled = true;
   playerCardNumberOfKills.disabled = true;
+  computerCardLikeability.disabled = true;
+  computerCardScreenTime.disabled = true;
+  computerCardNumberOfKills.disabled = true;
   pickCategory('Screen Time');
   checkWinner();
 };
@@ -171,6 +195,9 @@ playerCardNumberOfKills.onclick = () => {
   playerCardLikeability.disabled = true;
   playerCardScreenTime.disabled = true;
   playerCardNumberOfKills.disabled = true;
+  computerCardLikeability.disabled = true;
+  computerCardScreenTime.disabled = true;
+  computerCardNumberOfKills.disabled = true;
   pickCategory('Number of Kills');
   checkWinner();
 };
@@ -181,6 +208,9 @@ nextRoundButton.onclick = () => {
   playerCardLikeability.disabled = false;
   playerCardScreenTime.disabled = false;
   playerCardNumberOfKills.disabled = false;
+  computerCardLikeability.disabled = false;
+  computerCardScreenTime.disabled = false;
+  computerCardNumberOfKills.disabled = false;
   nextRoundFunction();
 };
 
@@ -249,9 +279,9 @@ const pickCategory = (category) => {
 const checkWinner = () => {
   if (playerDeck.length === 0) {
     document.getElementById('playerCardsNumberText').classList = 'text-center bg-danger text-white p-3';
-    document.getElementById('playerCardsNumberText').innerHTML = 'GAME OVER! The computer has won!';
+    document.getElementById('playerCardsNumberText').innerHTML = 'GAME OVER! Dracarys!';
     document.getElementById('computerCardsNumberText').classList = 'text-center bg-danger text-white p-3';
-    document.getElementById('computerCardsNumberText').innerHTML = 'GAME OVER! The computer has won!';
+    document.getElementById('computerCardsNumberText').innerHTML = 'You will become dragon barbecue!';
     document.getElementById('playerCardsNumber').classList = 'text-center bg-danger text-white';
     document.getElementById('computerCardsNumber').classList = 'text-center bg-danger text-white';
     gameStartButton.disabled = true;
@@ -260,9 +290,9 @@ const checkWinner = () => {
   }
   if (computerDeck.length === 0) {
     document.getElementById('playerCardsNumberText').classList = 'text-center bg-success text-white p-3';
-    document.getElementById('playerCardsNumberText').innerHTML = `YOU'VE WON!`;
+    document.getElementById('playerCardsNumberText').innerHTML = `YOU'VE WON! The throne is yours!`;
     document.getElementById('computerCardsNumberText').classList = 'text-center bg-success text-white p-3';
-    document.getElementById('computerCardsNumberText').innerHTML = `YOU'VE WON!`;
+    document.getElementById('computerCardsNumberText').innerHTML = `YOU'VE WON! The throne is yours!`;
     document.getElementById('playerCardsNumber').classList = 'text-center bg-success text-white';
     document.getElementById('computerCardsNumber').classList = 'text-center bg-success text-white';
     gameStartButton.disabled = true;

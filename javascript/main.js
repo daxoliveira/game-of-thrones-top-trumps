@@ -66,6 +66,12 @@ const nextRoundFunction = () => {
 
   document.getElementById('playerCardLikeabilityButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
   document.getElementById('computerCardLikeabilityButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
+
+  document.getElementById('playerCardScreenTimeButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
+  document.getElementById('computerCardScreenTimeButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
+
+  document.getElementById('playerCardNumberOfKillsButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
+  document.getElementById('computerCardNumberOfKillsButton').classList = 'btn btn-dark text-muted list-group-item d-flex justify-content-between align-items-center';
 };
 
 const startGame = () => {
@@ -113,24 +119,42 @@ playerCardLikeability.onclick = () => {
   checkWinner();
 };
 
-nextRoundButton.onclick = () => {
-  document.getElementById('computerCardCover').className = 'card bg-dark d-flex justify-content-center align-items-center';
-  document.getElementById('computerCardDiv').className = 'd-none';
-  nextRoundFunction();
-}
 
 playerCardScreenTime.onclick = () => {
   document.getElementById('computerCardCover').className = 'd-none';
   document.getElementById('computerCardDiv').className = 'card';
+  if (playerDeck[0].screenTime > computerDeck[0].screenTime) {
+    document.getElementById('playerCardScreenTimeButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardScreenTimeButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+  } else {
+    document.getElementById('playerCardScreenTimeButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardScreenTimeButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+  }
+  nextRoundButton.disabled = false;
+  pickCategory('Screen Time');
   checkWinner();
 };
 
 playerCardNumberOfKills.onclick = () => {
   document.getElementById('computerCardCover').className = 'd-none';
   document.getElementById('computerCardDiv').className = 'card';
+  if (playerDeck[0].numberOfKills > computerDeck[0].numberOfKills) {
+    document.getElementById('playerCardNumberOfKillsButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardNumberOfKillsButton').classList = 'btn btn-dark text-white bg-success list-group-item d-flex justify-content-between align-items-center';
+  } else {
+    document.getElementById('playerCardNumberOfKillsButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+    document.getElementById('computerCardNumberOfKillsButton').classList = 'btn btn-dark text-white bg-danger list-group-item d-flex justify-content-between align-items-center';
+  }
+  nextRoundButton.disabled = false;
+  pickCategory('Number of Kills');
   checkWinner();
 };
 
+nextRoundButton.onclick = () => {
+  document.getElementById('computerCardCover').className = 'card bg-dark d-flex justify-content-center align-items-center';
+  document.getElementById('computerCardDiv').className = 'd-none';
+  nextRoundFunction();
+};
 // Step 4 - Set "Play Round Function"
 
 // a) Set function in which the player picks category on-click

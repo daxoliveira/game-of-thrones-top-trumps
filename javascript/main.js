@@ -219,10 +219,26 @@ const pickCategory = (category) => {
 
 const checkWinner = () => {
   if (playerDeck.length === 0) {
-    console.log('The computer has won the game! GAME OVER!');
+    document.getElementById('playerCardsNumberText').classList = 'text-center bg-danger text-white p-3';
+    document.getElementById('playerCardsNumberText').innerHTML = 'GAME OVER! The computer has won!';
+    document.getElementById('computerCardsNumberText').classList = 'text-center bg-danger text-white p-3';
+    document.getElementById('computerCardsNumberText').innerHTML = 'GAME OVER! The computer has won!';
+    document.getElementById('playerCardsNumber').classList = 'text-center bg-danger text-white';
+    document.getElementById('computerCardsNumber').classList = 'text-center bg-danger text-white';
+    gameStartButton.disabled = true;
+    nextRoundButton.disabled = true;
+    gameRestartButton.disabled = false;
   }
   if (computerDeck.length === 0) {
-    console.log('You have won the game! GAME OVER!');
+    document.getElementById('playerCardsNumberText').classList = 'text-center bg-success text-white p-3';
+    document.getElementById('playerCardsNumberText').innerHTML = `YOU'VE WON!`;
+    document.getElementById('computerCardsNumberText').classList = 'text-center bg-success text-white p-3';
+    document.getElementById('computerCardsNumberText').innerHTML = `YOU'VE WON!`;
+    document.getElementById('playerCardsNumber').classList = 'text-center bg-success text-white';
+    document.getElementById('computerCardsNumber').classList = 'text-center bg-success text-white';
+    gameStartButton.disabled = true;
+    nextRoundButton.disabled = true;
+    gameRestartButton.disabled = false;
   }
   return console.log(`The game is still going, the current score is Player ${playerDeck.length} cards vs. Computer ${computerDeck.length} cards!`);
 };

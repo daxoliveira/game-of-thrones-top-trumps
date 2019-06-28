@@ -12,7 +12,7 @@ class Card {
 
 // Step 2 - Create 10 cards and store them in an array
 
-const daenerysTargaryen = new Card('Daenerys Targaryen', './images/1daenerysTargaryen.jpg', 107, 276, 6582);
+const daenerysTargaryen = new Card('Daenerys Targaryen', './images/1daenerysTargaryen.jpg', 137, 340, 6582);
 const jonSnow = new Card('Jon Snow', './images/2jonSnow.jpg', 123, 338, 112);
 const tyrionLannister = new Card('Tyrion Lannister', './images/3tyrionLannister.jpg', 95, 337, 32);
 const sansaStark = new Card('Sansa Stark', './images/4sansaStark.jpg', 80, 239, 8);
@@ -290,9 +290,9 @@ const checkWinner = () => {
   }
   if (computerDeck.length === 0) {
     document.getElementById('playerCardsNumberText').classList = 'text-center bg-success text-white p-3';
-    document.getElementById('playerCardsNumberText').innerHTML = `YOU'VE WON! The throne is yours!`;
+    document.getElementById('playerCardsNumberText').innerHTML = `YOU'VE WON! Please stop the killing!`;
     document.getElementById('computerCardsNumberText').classList = 'text-center bg-success text-white p-3';
-    document.getElementById('computerCardsNumberText').innerHTML = `YOU'VE WON! The throne is yours!`;
+    document.getElementById('computerCardsNumberText').innerHTML = `The throne is yours, happy now?`;
     document.getElementById('playerCardsNumber').classList = 'text-center bg-success text-white';
     document.getElementById('computerCardsNumber').classList = 'text-center bg-success text-white';
     gameStartButton.disabled = true;

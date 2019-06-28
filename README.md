@@ -19,7 +19,7 @@ You can play anytime as long as you have a computer with internet connection. Al
 How can I play?
 In order to win this game you have to take all of your opponent's cards.
  
-Step 1: The first version of the game will consist of an even distribution of 32 cards (more cards will be added as the game gets tested) between two players, the machine and you.
+Step 1: The first version of the game will consist of an even distribution of 10 cards (more cards will be added as the game gets tested) between two players, the machine and you.
 
 Step 2: To start the game, the window will display one card facing up (you) against another one facing down (the machine). 
 

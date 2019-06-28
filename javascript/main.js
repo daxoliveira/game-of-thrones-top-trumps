@@ -78,7 +78,6 @@ const nextRoundFunction = () => {
 const startGame = () => {
   shuffle();
   deal();
-  // nextRoundFunction();
 };
 
 // DOM Manipulation
@@ -212,6 +211,7 @@ nextRoundButton.onclick = () => {
   computerCardScreenTime.disabled = false;
   computerCardNumberOfKills.disabled = false;
   nextRoundFunction();
+  nextRoundButton.disabled = true;
 };
 
 // Step 4 - Set "Play Round Function"
